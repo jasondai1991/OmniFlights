@@ -1,4 +1,4 @@
-var fileName = "../ReadyData/chart2.csv";
+var fileName = "ReadyData/chart2.csv";
 var chartLables = [];
 
 var airline_translation = {"NK":"Spirit",
@@ -58,7 +58,7 @@ d3.csv(fileName, function(error, data) {
 });
 
 var tierdMap = {},
-    tierdFile = "../ReadyData/chart3.csv",
+    tierdFile = "ReadyData/chart3.csv",
     tierdMaxVal = {};
 
 d3.csv(tierdFile, function(error, data) {
