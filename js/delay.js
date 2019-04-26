@@ -32,10 +32,6 @@ var xScale = d3.scalePow().exponent(0.7).domain([0,50]).range([0, width]),
 
 var legend = d3.legendColor()
   .scale(colorScale);
-  
-svg.append("g")
-  .attr("transform", "translate(50,0)")
-  .call(legend);
 
 var xAxis = d3.axisBottom().scale(xScale).ticks(10),
     yAxis = d3.axisLeft().scale(yScale).ticks(10);
@@ -54,6 +50,10 @@ svg.append("g")
 svg.append("g")
     .attr("class", "y axis")
     .call(yAxis);
+
+svg.append("g")
+    .attr("transform", "translate(50,0)")
+    .call(legend);
 
 svg.append("text")
     .attr("class", "x label")
