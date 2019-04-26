@@ -60,6 +60,22 @@
 			pointer-events: none;     
 		}
 
+		#chart-delay .legend {
+	      position: absolute;
+	      bottom: 0px;
+	      right: 0;
+	      left: 0;
+	      width: 100px;
+	      height: 200px;
+	    }
+
+	    #legend {
+	      position: absolute;
+	      bottom: 0;
+	      right: 0;
+	    }
+
+
 
 		.axis path, .axis line {
 			fill: none;
@@ -297,6 +313,7 @@
         <button onclick="start()" id="start_button">start</button>
       </div>
       <p id="chart-delay" style="display: inline-block"></p>
+      <svg id='legend' style="height:200px"/>
       <p style="text-align: center">Mouseover the date to move forward and backwards through time.</p>
 		</div>
 		<div style="text-align: center;padding-top: 40px; padding-bottom: 40px;  height:850px">
@@ -406,10 +423,17 @@
    <script src="js/jquery-1.11.3.min.js"></script>
    <script src="js/jquery-migrate-1.2.1.min.js"></script>
    <script src="js/plugins.js"></script>
-	 <script src="js/main.js"></script>
-	 <script src="https://d3js.org/d3.v3.min.js"> </script>
-	 <script src="js/delay.js" defer></script>
-	 <script src="js/bar.js"></script>
+	<script src="js/main.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"> </script>
+    <script>
+      var d3v3 = window.d3;
+      window.d3 = null;
+    </script>
+    <script src="https://d3js.org/d3.v5.min.js"> </script>
+    <script src="js/delay.js" defer></script>
+    <script src="js/bar.js"></script>
+    <script src="js/d3.legend.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.18.0/d3-legend.min.js"></script>
 
 </body>
 

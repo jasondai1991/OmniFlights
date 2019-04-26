@@ -4,6 +4,7 @@ function radius(d) { return d.total; }
 function color(d) { return d.name; }
 function key(d) { return d.name; }
 
+
 var airline_map = {"NK":"Spirit",
                    "WN":"Southwest",
                    "B6":"Jetblue",
@@ -18,22 +19,30 @@ var airline_map = {"NK":"Spirit",
                    "MQ":"AmericanEagle"
                   };
 
+var airline_domain = ["Alaska","Spirit","AmericanEagle","Jetblue","Delta","United","Southwest","Hawaiian","SkyWest","ExpressJet","Frontier","American"]
+
 var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 29.5},
     width = 750 - margin.right-margin.left,
     height = 500 - margin.top - margin.bottom;
 
-var xScale = d3.scale.pow().exponent(0.7).domain([0,50]).range([0, width]),
-    yScale = d3.scale.linear().domain([0, 0.8]).range([height, 0]),
-    radiusScale = d3.scale.sqrt().domain([0, 3000]).range([0, 20]),
-    colorScale = d3.scale.category20();
+var xScale = d3.scalePow().exponent(0.7).domain([0,50]).range([0, width]),
+    yScale = d3.scaleLinear().domain([0, 0.8]).range([height, 0]),
+    radiusScale = d3.scaleSqrt().domain([0, 3000]).range([0, 15]),
+    colorScale = d3.scaleOrdinal().range(d3.schemePaired).domain(airline_domain);
 
-var xAxis = d3.svg.axis().orient("bottom").scale(xScale).ticks(10),
-    yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(10);
+var legend = d3.legendColor()
+  .scale(colorScale);
+  
+svg.append("g")
+  .attr("transform", "translate(50,0)")
+  .call(legend);
+
+var xAxis = d3.axisBottom().scale(xScale).ticks(10),
+    yAxis = d3.axisLeft().scale(yScale).ticks(10);
 
 var svg = d3.select("#chart-delay").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .style("background-color","white")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -69,7 +78,7 @@ var label = svg.append("text")
     .text(1);
 
 var div = d3.select("body").append("div") 
-    .attr("class", "delaytooltip")       
+    .attr("class", "tooltip")       
     .style("opacity", 0);
 
 function start(){
@@ -77,16 +86,16 @@ function start(){
   var elem = document.getElementById('start_button');
   elem.parentNode.removeChild(elem);
 
-  d3.json("ReadyData/airline_delay.json", function(flights) {
-
-    var bisect = d3.bisector(function(d) { return d[0]; });
+  d3.json("ReadyData/airline_delay.json")
+  .then(function(flights){
+        var bisect = d3.bisector(function(d) { return d[0]; });
 
     function make_percent(x){
       return Math.trunc(x*100) + "%";
     }
 
     function round_twodigits(x){
-      return Math.round(x * 100) / 100
+      return Math.round(x * 100) / 100;
     }
 
     var dot = svg.append("g")
@@ -95,6 +104,7 @@ function start(){
         .enter().append("circle")
         .style("fill", function(d) { return colorScale(radius(d)); })
         .call(position)
+//        .attr("data-legend",function(d) { return airline_map[d.name]})
         .sort(order)
         .on("mouseover", function(d) {    
             div.transition()    
@@ -123,9 +133,15 @@ function start(){
 
     svg.transition()
         .duration(20000)
-        .ease("linear")
+        .ease(d3.easeLinear)
         .tween("date", tweenDate)
-        .each("end", enableInteraction);
+        .on("end", enableInteraction);
+
+    // legend = svg.append("g")
+    //   .attr("class","legend")
+    //   .attr("transform","translate(50,30)")
+    //   .style("font-size","12px")
+    //   .call(d3.legend)
 
     // Positions the dots based on data.
     function position(dot) {
@@ -142,7 +158,7 @@ function start(){
     }
 
     function enableInteraction() {
-      var dateScale = d3.scale.linear()
+      var dateScale = d3.scaleLinear()
           .domain([1, 53])
           .range([box.x - 4.5* box.width+5, box.x + box.width-5 ])
           .clamp(true);

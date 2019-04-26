@@ -25,7 +25,7 @@ for(var i=0; i<144; i++){
     listForAll.push(0);
 }
 
-d3.csv(fileName, function(error, data) {
+d3v3.csv(fileName, function(error, data) {
     data.forEach(function(d) {
         if(d.Type == 'City'){
             var city = d.Index;
@@ -61,7 +61,7 @@ var tierdMap = {},
     tierdFile = "ReadyData/chart3.csv",
     tierdMaxVal = {};
 
-d3.csv(tierdFile, function(error, data) {
+d3v3.csv(tierdFile, function(error, data) {
     data.forEach(function(d) {
         var airline = airline_translation[d.airline];
         if(!(airline in tierdMap)){
@@ -90,7 +90,7 @@ d3.csv(tierdFile, function(error, data) {
 });
 
 function selectAirline(){
-    d3.select("#Both").select("*").remove();
+    d3v3.select("#Both").select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -98,15 +98,15 @@ function selectAirline(){
     bothBtn.style.backgroundColor = "#e7e7e7";
     airlineBtn.style.backgroundColor = "#00BFFF";
 
-    var container1 = d3.select("#vis-container1");
-    var container2 = d3.select("#vis-container2");
+    var container1 = d3v3.select("#vis-container1");
+    var container2 = d3v3.select("#vis-container2");
 
     makeVis(container1, airlineMap, maxVal);
     makeVis(container2, airlineMap, maxVal);
 }
 
 function selectCity(){
-    d3.select("#Both").select("*").remove();
+    d3v3.select("#Both").select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -114,15 +114,15 @@ function selectCity(){
     bothBtn.style.backgroundColor = "#e7e7e7";
     cityBtn.style.backgroundColor = "#00BFFF";
 
-    var container1 = d3.select("#vis-container1");
-    var container2 = d3.select("#vis-container2");
+    var container1 = d3v3.select("#vis-container1");
+    var container2 = d3v3.select("#vis-container2");
 
     makeVis(container1, cityMap, maxVal);
     makeVis(container2, cityMap, maxVal);
 }
 
 function selectBoth(){
-    d3.select("#Both").select("*").remove();
+    d3v3.select("#Both").select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -140,16 +140,16 @@ function selectBoth(){
         airlines.splice(index,1);
     }
 
-    var bothDrop = d3.select("#Both")
+    var bothDrop = d3v3.select("#Both")
                     .append("select")
                     .attr("padding", 30)
                     .on("change", function(){
-                        var newKey = d3.select(this).property('value'),
+                        var newKey = d3v3.select(this).property('value'),
                         cityMap2 = tierdMap[newKey];
                         newMaxVal = tierdMaxVal[newKey];
 
-                        var container1 = d3.select("#vis-container1");
-                        var container2 = d3.select("#vis-container2");
+                        var container1 = d3v3.select("#vis-container1");
+                        var container2 = d3v3.select("#vis-container2");
 
                         makeVis(container1, cityMap2, newMaxVal);
                         makeVis(container2, cityMap2, newMaxVal);
@@ -169,8 +169,8 @@ function selectBoth(){
     var cityMap2 = tierdMap["American"];
     var newMaxVal = tierdMaxVal["American"];
 
-    var container1 = d3.select("#vis-container1");
-    var container2 = d3.select("#vis-container2");
+    var container1 = d3v3.select("#vis-container1");
+    var container2 = d3v3.select("#vis-container2");
 
     makeVis(container1, cityMap2, newMaxVal);
     makeVis(container2, cityMap2, newMaxVal);
@@ -185,11 +185,11 @@ var makeVis = function(container, map, vals) {
         height = 450 - margin.top  - margin.bottom;
 
         // Make x scale
-    var xScale = d3.scale.ordinal()
+    var xScale = d3v3.scale.ordinal()
         .domain(chartLables)
         .rangeBands([0, width],0.1);
 
-    var yScale = d3.scale.linear()
+    var yScale = d3v3.scale.linear()
         .range([height, 0]);
 
 
@@ -204,7 +204,7 @@ var makeVis = function(container, map, vals) {
         return x/6 + ":00";
     }
 
-    var xAxis = d3.svg.axis()
+    var xAxis = d3v3.svg.axis()
         .scale(xScale)
         .orient("bottom")
         .tickValues([0,12,24,36,48,60,72,84,96,108,120,132])
@@ -221,7 +221,7 @@ var makeVis = function(container, map, vals) {
     .attr("y", height)
     .text("Time");
 
-    var yAxis = d3.svg.axis()
+    var yAxis = d3v3.svg.axis()
         .scale(yScale)
         .orient("left");
 
@@ -252,7 +252,7 @@ var makeVis = function(container, map, vals) {
 
     var updateBars = function(data, max, curKey) {
         // First update the y-axis domain to match data
-        yScale.domain( [0, d3.max(data, function(d) { return d;})]);
+        yScale.domain( [0, d3v3.max(data, function(d) { return d;})]);
         yAxisHandleForUpdate.call(yAxis);
 
         label.text(curKey);
@@ -318,7 +318,7 @@ var makeVis = function(container, map, vals) {
     };
 
     var dropdownChange = function() {
-        var newKey = d3.select(this).property('value'),
+        var newKey = d3v3.select(this).property('value'),
             newData   = map[newKey],
             max = vals[newKey];
         updateBars(newData, max, newKey);
