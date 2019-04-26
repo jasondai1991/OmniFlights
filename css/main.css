@@ -666,7 +666,7 @@ button.round, .button.round {
 	border-radius: 1000px;
 }
 button.stroke, .button.stroke {
-	background: transparent !important;
+	background: #FFD700 !important;
 	border: 3px solid transparent;
 	line-height: 4.4rem;
 }
@@ -929,7 +929,7 @@ a.menu-toggle {
 /* navigation links */
 .main-navigation li a {
 	display: block;
-	padding: 18px 7px;
+	padding: 18px 18px;
 	line-height: 30px;
 	text-decoration: none;
 	text-align: left;
@@ -1113,7 +1113,7 @@ a.menu-toggle {
  */
 
 #intro {
-	background: #14181E url(../images/intro-bg.jpg) no-repeat center;
+	background: #14181E url(../images/intro-bg.png) no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -1168,15 +1168,14 @@ a.menu-toggle {
 	outline: none;
 }
 .intro-content .button {
-	border-color: #FFFFFF;
-	color: #FFFFFF;
-	height: 6.6rem;
-	line-height: 6rem;
-	padding: 0 3rem !important;
-	margin-top: 1.8rem;
+	border-color: #FFD700;
+	color: black;
+	height: 4.6rem;
+	line-height: 4rem;
+/*	padding: 0 3rem !important;*/
+	margin-top: 0.1rem;
 	font-family: "raleway-heavy", sans-serif;
 	font-size: 1.4rem;
-	text-transform: uppercase;
 	letter-spacing: .4rem;
 }
 .intro-content .button:hover, .intro-content .button:focus {
