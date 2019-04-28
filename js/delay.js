@@ -83,7 +83,7 @@ var label = svg.append("text")
     .text(1);
 
 var div = d3.select("body").append("div") 
-    .attr("class", "tooltip")       
+    .attr("class", "delaytooltip")       
     .style("opacity", 0);
 
 function start(){
@@ -113,8 +113,8 @@ function start(){
         .sort(order)
         .on("mouseover", function(d) {    
             div.transition()    
-                .duration(200)    
-                .style("opacity", .9);    
+                .duration(200)
+                .style("opacity", 0.9);    
             div .html("Airline:&nbsp&nbsp" + airline_map[d.name] + "<br/>"  + "Avg_delay:&nbsp" + round_twodigits(d.avg_delay_time) +" min" 
               + "<br/>" + "Delay_rate:&nbsp&nbsp"+make_percent(d.delay_rate) + "<br/>Flights:&nbsp&nbsp" + Math.trunc(d.total)) 
                 .style("left", (d3.event.pageX) + "px")   
