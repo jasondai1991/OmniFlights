@@ -79,7 +79,7 @@
 
 		.axis path, .axis line {
 			fill: none;
-			stroke: #000;
+			stroke: white;
 			shape-rendering: crispEdges;
 		}
 
@@ -220,28 +220,29 @@
    		</div>
    	</div>
    		<div style="text-align: center">
-   		<div style="padding-top: 30px; padding-bottom: 30px; height:900px">
+   		<div style="padding-top: 30px; padding-bottom: 30px; height:820px">
 			 <p style="font-size: 60px">Infographic 1</p>
 			 <img src="images/Infographic1.png"></img></div>
 		 </div>
 		 <div></div>
-		 <div style="background-color: #EAEAED;padding-top: 50px; padding-bottom: 20px">
+		 <div style="background-color: black;padding-top: 50px; padding-bottom: 20px">
 		 <div style="width:80%; margin:0 10%; text-align: justify;">
-   			<h1 style="text-align:center; color:black">Flight Route Map across USA</h1>
+   			<h1 style="text-align:center; color:white">Flight Route Map across USA</h1>
 
-			<div class="lead" style="color:black">
-				<p>In 2015, all 12 US airlines carried out a total of 5.8 million flights between 628 airports. Chicago ranked No.1 among cities  and Southwest ranked No.1 among airlines. </p>
-				<p >Want to find out all flights from a certain city?<br>
-				Or want to find out hubs for a certain airlines?<br>
-				Have fun interacting with the below chart. Use the <b>filter</b> on the right side to <b>choose departure cities, airlines or both</b>!
-				</p>
+			<div class="lead" style="color:white">
+				<p>In 2015, all 12 US airlines carried out a total of 5.8 million flights between 628 airports. Chicago ranked No.1 among cities  and Southwest ranked No.1 among airlines. The current map below shows all flights from Chicago with Southwest Airline.</p>
+				<div>Choose <b style="color:yellow">Departure City or Airline</b> on the <b style="color:yellow">right dropdown filters</b> and interact with the map!
+				<ul>
+				<li>By choosing a city, the map shows flights departing from that city, and you can futher filter those flights by airlines. </li>
+				<li>By choosing an airline and choosing 'All' for cities, you can view all flights for the airline and know its hubs.</li>
+				</ul>
+				</div>
 			</div>
    		</div>   		
-		 <div style="width:900px;height:600px; margin: 0 10%;">
-				<div class='tableauPlaceholder' id='viz1555891880240' style='position: relative; text-align: center'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fl&#47;flightRoutesMap-InfoViz247&#47;FlightRouteMap&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='flightRoutesMap-InfoViz247&#47;FlightRouteMap' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fl&#47;flightRoutesMap-InfoViz247&#47;FlightRouteMap&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                
-				<script type='text/javascript'>                    var divElement = document.getElementById('viz1555891880240');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='900px';vizElement.style.height='600px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-		 </div>
+		 <div style="width:950; margin:0 13%">
+		<div class='tableauPlaceholder' id='viz1556490380812' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fl&#47;flightRoutesMap-InfoViz247&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='flightRoutesMap-InfoViz247&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;fl&#47;flightRoutesMap-InfoViz247&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556490380812');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='950px';vizElement.style.height='627px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 		</div>
+	</div>
 		<div style="width:80%; margin:30px 15%; text-align: justify;">
    			<h1 style="text-align:center; color:black">Compare traffic every 10 minutes between Cities and Airlines</h1>
 			<div class="lead" style="color:black">
@@ -276,13 +277,14 @@
 					<div id='vis-container1' style="display: inline-block" align = "center"></div>
 					<div id='vis-container2' style="display: inline-block" align = "center"></div>
 			</div>
-			<div style="background-color:#EAEAED;padding-top: 30px; padding-bottom: 20px">
+			<div style="background-color:black;padding-top: 30px; padding-bottom: 20px">
 
-			
-			<p class="lead" style="width:80%;margin:0 auto;color:black; text-align: justify">Had so much fun playing with the charts and doing multiple comparisons? Now sit back and relax to watch a paging animation of traffic of 24 hours in a day all over USA. You can see that traffic starts to pile up from 05:00 until 20:00 and California, Northeat, Chicago Texas are the busiest areas. If you want to know detailed information, simply hover above each city dot.</p>
+			<h1 style="text-align:center; color:white">Animated Traffic Per Hour across USA</h1>
+
+			<p class="lead" style="width:80%;margin:0 auto;color:white; text-align: justify">Now sit back and relax to watch a paging animation of traffic of 24 hours in a day all over USA. You can see that traffic starts to pile up from 05:00 until 20:00 and California, Northeat, Chicago Texas are the busiest areas. If you want to know detailed information, simply hover above each city dot.</p>
 			<p></p>
 			<div style="width:800px;height:600px; margin: 0 auto;">
-<div class='tableauPlaceholder' id='viz1556060968281' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;TrafficPerAirportbyHour&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TrafficPerAirportbyHour&#47;TrafficPerAirportbyHour' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;TrafficPerAirportbyHour&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556060968281');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<div class='tableauPlaceholder' id='viz1556493052782' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TrafficPerAirportbyHour&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556493052782');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='800px';vizElement.style.height='577px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 				
 			</div>
 			</div>
@@ -316,10 +318,10 @@
 			<div class='tableauPlaceholder' id='viz1556063836361' style='position: relative'><noscript><a href=' '>< img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cu&#47;CustomizedSearch2&#47;Sheet3&#47;1_rss.png' style='border: none' /></a ></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='CustomizedSearch2&#47;Sheet3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Cu&#47;CustomizedSearch2&#47;Sheet3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556063836361');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 			</div>
 		</div>
-    <div style="text-align: center;padding-top: 40px; padding-bottom: 40px;background-color:#EAEAED; ">
-      <div style="width:80%; margin:0 auto">
-		<h1 style="text-align: center">Flight delays over a year of each airline</h1>
-		<p style="text-align:left"> Click on the start button to view delay information for each airline. The circle size represents their flight traffic for that day.Mouseover the date to move forward and backwards through time.
+    <div style="text-align: center;padding-top: 40px; padding-bottom: 40px;background-color:black; ">
+      <div style="width:80%; margin:0 auto; color:white">
+		<h1 style="text-align: center;color:white">Flight delays over a year of each airline</h1>
+		<p style="text-align:left"> Click on the start button to view delay information for each airline. The circle size represents their flight traffic for that day. Mouseover the date to move forward and backwards through time.
 		</p>
         <button onclick="start()" id="start_button">start</button>
       </div>
@@ -442,7 +444,6 @@
     <script src="https://d3js.org/d3.v5.min.js"> </script>
     <script src="js/delay.js" defer></script>
     <script src="js/bar.js"></script>
-    <script src="js/d3.legend.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.18.0/d3-legend.min.js"></script>
 
 </body>

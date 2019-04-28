@@ -45,21 +45,25 @@ var svg = d3.select("#chart-delay").append("svg")
 svg.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
+    .attr("stroke","white")
     .call(xAxis);
 
 svg.append("g")
     .attr("class", "y axis")
+    .attr("stroke","white")
     .call(yAxis);
 
 svg.append("g")
-    .attr("transform", "translate(50,0)")
+    .attr("transform", "translate(620,0)")
     .call(legend);
+
 
 svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
     .attr("x", width)
     .attr("y", height - 6)
+    .attr("stroke","white")
     .text("average delay time (minutes)");
 
 svg.append("text")
@@ -68,6 +72,7 @@ svg.append("text")
     .attr("y", 6)
     .attr("dy", ".75em")
     .attr("transform", "rotate(-90)")
+    .attr("stroke","white")
     .text("delay rate");
 
 var label = svg.append("text")
