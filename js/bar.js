@@ -61,6 +61,8 @@ var tierdMap = {},
     tierdFile = "ReadyData/chart3.csv",
     tierdMaxVal = {};
 
+var placeholder = d3v3.select("#placeholder");
+
 d3v3.csv(tierdFile, function(error, data) {
     data.forEach(function(d) {
         var airline = airline_translation[d.airline];
@@ -91,6 +93,7 @@ d3v3.csv(tierdFile, function(error, data) {
 
 function selectAirline(){
     d3v3.select("#Both").select("*").remove();
+    placeholder.select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -107,6 +110,7 @@ function selectAirline(){
 
 function selectCity(){
     d3v3.select("#Both").select("*").remove();
+    placeholder.select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -123,6 +127,7 @@ function selectCity(){
 
 function selectBoth(){
     d3v3.select("#Both").select("*").remove();
+    placeholder.select("*").remove();
     var cityBtn = document.getElementById("cityBtn");
     var bothBtn = document.getElementById("bothBtn");
     var airlineBtn = document.getElementById("airlineBtn");
@@ -182,7 +187,7 @@ var makeVis = function(container, map, vals) {
     // Define dimensions of vis
     var margin = { top: 30, right: 50, bottom: 30, left: 50 },
         width  = 600 - margin.left - margin.right,
-        height = 450 - margin.top  - margin.bottom;
+        height = 400 - margin.top  - margin.bottom;
 
         // Make x scale
     var xScale = d3v3.scale.ordinal()
@@ -211,7 +216,7 @@ var makeVis = function(container, map, vals) {
         .tickFormat(function(d){ return transform_tick(d); });
 
     var xAxisElem = svg.append("g")
-                    .attr("class", "x axis")
+                    .attr("class", "newxaxis")
                     .attr("transform", "translate(0," + height + ")")
                     .call(xAxis);
 
@@ -226,7 +231,7 @@ var makeVis = function(container, map, vals) {
         .orient("left");
 
     var yAxisHandleForUpdate = svg.append("g")
-        .attr("class", "y axis")
+        .attr("class", "newxaxis")
         .call(yAxis);
 
     yAxisHandleForUpdate.append("text")

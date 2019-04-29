@@ -84,6 +84,14 @@
 			shape-rendering: crispEdges;
 		}
 
+		.newxaxis path, .newxaxis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+
+
+
 		.label {
 			fill: #777;
 		}
@@ -248,47 +256,45 @@
    			<h1 style="text-align:center; color:black">Compare traffic every 10 minutes between Cities and Airlines</h1>
 			<div class="lead" style="color:black">
 				<p>Now let’s get to a finer granularity. In 2015, there were 113 flights taking off every 10 minutes and the peak happened between 06:00 and 06:10 with nearly 360 flights.  </p>
-				<p >The below chart allows you to explore and compare flight traffic between cities, airlines or both!<br>
-					First, choose one <b>dimension</b> button.<br>
-					Secondly, choose the two options you want to compare from <b>dropdown</b> menu.<br>					
-				</p>
-			</div>
-			
+				<p >In below chart, choose one <b>dimension</b> to compare traffic between <b>two</b> airports or airlines<br></p>
+			</div>			
    		</div>   	
+		<div style="height:10px"></div>
+		<div style="text-align: center">
+				<p> <b style="color: black">Dimension:</b>&nbsp
+				<button id="airlineBtn" onclick="selectAirline()" class="button">
+					Airline
+				</button>
+				&nbsp&nbsp
+				<button id="cityBtn" onclick="selectCity()" class="button">
+					City
+				</button>
+				&nbsp&nbsp
+				<button id="bothBtn" onclick="selectBoth()" class="button">
+					Tiered
+				</button>
+				</p>
+		</div>
+		<div id="placeholder" align="center">
+			<img src="images/placeholder.png" style="width:550px; height:300px">
+		</div>
+		<div style="text-align: center;">
+				<div id="Both" style="display: none;" align = "center">
+				</div> 
+				<div id='vis-container1' style="display: inline-block" align = "center"></div>
+				<div id='vis-container2' style="display: inline-block" align = "center"></div>
+		</div>
+		<div style="background-color:black;padding-top: 30px; padding-bottom: 20px">
 
-		 <div style="height:20px"></div>
-			<div style="text-align: center">
-					<p> Choose Dimension:&nbsp
-					<button id="airlineBtn" onclick="selectAirline()" class="button">
-						Airline
-					</button>
-					&nbsp&nbsp
-					<button id="cityBtn" onclick="selectCity()" class="button">
-						City
-					</button>
-					&nbsp&nbsp
-					<button id="bothBtn" onclick="selectBoth()" class="button">
-						Tiered
-					</button>
-					</p>
-			</div>
-			<div style="text-align: center;">
-					<div id="Both" style="display: none;" align = "center">
-					</div> 
-					<div id='vis-container1' style="display: inline-block" align = "center"></div>
-					<div id='vis-container2' style="display: inline-block" align = "center"></div>
-			</div>
-			<div style="background-color:black;padding-top: 30px; padding-bottom: 20px">
+		<h1 style="text-align:center; color:white">Animated Traffic Per Hour across USA</h1>
 
-			<h1 style="text-align:center; color:white">Animated Traffic Per Hour across USA</h1>
-
-			<p class="lead" style="width:80%;margin:0 auto;color:white; text-align: justify">Now sit back and relax to watch a paging animation of traffic of 24 hours in a day all over USA. You can see that traffic starts to pile up from 05:00 until 20:00 and California, Northeat, Chicago Texas are the busiest areas. If you want to know detailed information, simply hover above each city dot.</p>
-			<p></p>
-			<div style="width:800px;height:600px; margin: 0 auto;">
+		<p class="lead" style="width:80%;margin:0 auto;color:white; text-align: justify">Now sit back and relax to watch a paging animation of traffic of 24 hours in a day all over USA. You can see that traffic starts to pile up from 05:00 until 20:00 and California, Northeat, Chicago Texas are the busiest areas. If you want to know detailed information, simply hover above each city dot.</p>
+		<p></p>
+		<div style="width:800px;height:600px; margin: 0 auto;">
 <div class='tableauPlaceholder' id='viz1556493052782' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TrafficPerAirportbyHour&#47;Dashboard3' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrafficPerAirportbyHour&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1556493052782');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='800px';vizElement.style.height='577px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-				
-			</div>
-			</div>
+			
+		</div>
+		</div>
 
    </section> <!-- /process-->    
 
@@ -322,7 +328,7 @@
     <div style="text-align: center;padding-top: 40px; padding-bottom: 40px;background-color:black; ">
       <div style="width:80%; margin:0 auto; color:white">
 		<h1 style="text-align: center;color:white">Flight delays over a year of each airline</h1>
-		<p style="text-align:left"> Click on the start button to view delay information for each airline. The circle size represents their flight traffic for that day. Mouseover the date to move forward and backwards through time.
+		<p style="text-align:left"> In general, all airlines witness heavy delays during first weeks of January and last weeks of December , and the least delays at end of April to May. Click on the <b style="color:yellow">start</b> button to view delay information for each airline. The circle size represents their flight traffic for that day. You can <b style="color:yellow">mouseover the date</b> to move forward and backwards through time.
 		</p>
         <button onclick="start()" id="start_button">start</button>
       </div>
