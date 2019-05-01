@@ -1179,7 +1179,7 @@ a.menu-toggle {
 	letter-spacing: .4rem;
 }
 .intro-content .button:hover, .intro-content .button:focus {
-	color: #FFCF54;
+	color: black;
 	border-color: #FFCF54;
 }
 
